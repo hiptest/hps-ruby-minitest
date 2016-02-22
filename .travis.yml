@@ -1,0 +1,13 @@
+language: ruby
+rvm: 2.2.2
+sudo: false
+
+before_install:
+ - gem install hiptest-publisher
+ - hiptest-publisher -c minitest.conf --test-run-id=1356 --only=tests
+
+script:
+ - bundle exec ruby -Ilib test/project_test.rb - --tapy | tapout tap > results_minitest.tap
+
+after_script:
+  - hiptest-publisher -c minitest.conf --push=results_minitest.tap --test-run-id=1356
