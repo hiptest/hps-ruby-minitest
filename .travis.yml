@@ -7,7 +7,7 @@ before_install:
  - hiptest-publisher -c minitest.conf --test-run-id=1356 --only=tests
 
 script:
- - bundle exec ruby -Ilib test/project_test.rb - --tapy | tapout tap > results_minitest.tap
+ - bundle exec ruby -Ilib test/project_test.rb --junit
 
 after_script:
-  - hiptest-publisher -c minitest.conf --push=results_minitest.tap --test-run-id=1356
+  - hiptest-publisher -c minitest.conf --push=report.xml --test-run-id=1356
