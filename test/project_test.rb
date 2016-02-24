@@ -106,7 +106,6 @@ class TestCoffeeMachineHiptestPublisherSample < MiniTest::Unit::TestCase
 
 
   def test_No_messages_are_displayed_when_machine_is_shut_down
-    # Tags: plop
     # Given the coffee machine is started
     the_coffee_machine_is_started
     # When I shutdown the coffee machine
