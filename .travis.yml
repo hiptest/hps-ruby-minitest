@@ -7,7 +7,7 @@ before_install:
  - hiptest-publisher -c minitest.conf --test-run-id=1356 --only=tests
 
 script:
- - rake test
+ - bundle exec rake test
 
 after_script:
   - hiptest-publisher -c minitest.conf --push="test/reports/TEST-*.xml" --test-run-id=1356
