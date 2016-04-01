@@ -3,3 +3,4 @@ ruby '2.2.2'
 
 gem 'minitest'
 gem 'minitest-junit'
+gem 'minitest-reporters'

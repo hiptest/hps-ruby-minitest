@@ -31,7 +31,7 @@ Run tests
 
 To build the project and run the tests, use the following command:
 
-    bundle exec ruby -Ilib test/project_test.rb --junit
+    rake test
 
 The SUT implementation can be seen in [``src/coffee_machine.rb``](https://github.com/hiptest/hps-ruby-minitest/blob/master/src/coffee_machine.rb)
 
