@@ -9,9 +9,6 @@ class TestGrounds < MiniTest::Unit::TestCase
   include Actionwords
 
   def setup
-      # As a coffee lover
-      # I have to empty the grounds
-      # So I don't end up with a total mess around the coffee machine
       # Given the coffee machine is started
       the_coffee_machine_is_started
       # And I handle everything except the grounds

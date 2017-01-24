@@ -9,9 +9,6 @@ class TestWater < MiniTest::Unit::TestCase
   include Actionwords
 
   def setup
-      # As a coffee lover
-      # I have to handle the water tank
-      # So I can have coffee when I need it
       # Given the coffee machine is started
       the_coffee_machine_is_started
       # And I handle everything except the water tank

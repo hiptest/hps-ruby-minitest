@@ -5,7 +5,7 @@ require_relative 'actionwords'
 require_relative 'test_helper'
 
 
-class TestWeirdSpecs < MiniTest::Unit::TestCase
+class TestBadUsage < MiniTest::Unit::TestCase
   include Actionwords
 
   def test_Full_grounds_does_not_block_coffee
