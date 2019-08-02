@@ -36,13 +36,6 @@ jobs:
 
       - run:
           name: push results
-          when: on_success
+          when: always
           command: |
             hiptest-publisher -c minitest.conf --token=$SECRET_TOKEN --test-run-id=286945 --push="test/reports/TEST-*.xml" --execution-environment=minitest
-
-      - run:
-          name: push failed results
-          when: on_fail
-          command: |
-            hiptest-publisher -c minitest.conf --token=$SECRET_TOKEN --test-run-id=286945 --push="test/reports/TEST-*.xml" --execution-environment=minitest
-
