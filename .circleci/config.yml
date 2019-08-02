@@ -1,0 +1,41 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.5.5-node-browsers
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            gem install hiptest-publisher
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - run:
+          name: update tests
+          command: |
+            hiptest-publisher -c rspec.conf --token=$SECRET_TOKEN --test-run-id=286945 --without=actionwords
+
+      - run:
+          name: run tests
+          command: |
+            bundle exec rake test
+
+      - run:
+          name: push results
+          command: |
+            hiptest-publisher -c rspec.conf --token=$SECRET_TOKEN --test-run-id=286945 --push="test/reports/TEST-*.xml" --execution-environment=minitest
+
