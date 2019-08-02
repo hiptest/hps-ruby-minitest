@@ -27,7 +27,7 @@ jobs:
       - run:
           name: update tests
           command: |
-            hiptest-publisher -c rspec.conf --token=$SECRET_TOKEN --test-run-id=286945 --without=actionwords
+            hiptest-publisher -c minitest.conf --token=$SECRET_TOKEN --test-run-id=286945 --without=actionwords
 
       - run:
           name: run tests
@@ -37,5 +37,5 @@ jobs:
       - run:
           name: push results
           command: |
-            hiptest-publisher -c rspec.conf --token=$SECRET_TOKEN --test-run-id=286945 --push="test/reports/TEST-*.xml" --execution-environment=minitest
+            hiptest-publisher -c minitest.conf --token=$SECRET_TOKEN --test-run-id=286945 --push="test/reports/TEST-*.xml" --execution-environment=minitest
 
